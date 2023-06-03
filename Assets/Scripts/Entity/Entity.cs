@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
     protected GameObject HookShot;
     protected SpriteRenderer spriteRenderer;
     protected int CurHp;
+    public bool IsOnThehook = false;
 
 
 
@@ -80,7 +81,6 @@ public class Entity : MonoBehaviour
     virtual public bool SuperEntityMoveGrap(GameObject place, float speed)
     {
         var colliderDist = gameObject.GetComponent<Collider2D>().Distance(place.GetComponent<Collider2D>());
-        Debug.Log(colliderDist);
         if (colliderDist.distance > 0.4)
         {
             transform.GetComponent<Rigidbody2D>().velocity = ((Vector2)place.transform.position - (Vector2)transform.position).normalized * speed;

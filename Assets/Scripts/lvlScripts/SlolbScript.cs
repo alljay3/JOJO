@@ -8,7 +8,7 @@ public class SlolbScript : MonoBehaviour
     {
         if (collision.tag == "Foot")
         {
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
+            collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 2;
         }
         if (collision.tag == "Enemy")
         {
@@ -22,11 +22,11 @@ public class SlolbScript : MonoBehaviour
     {
         if (collision.tag == "Foot")
         {
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
+            collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 2;
         }
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<SpriteRenderer>().sortingOrder = 5;
+            collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
     }
 }

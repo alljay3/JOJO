@@ -12,6 +12,7 @@ public class Player : Entity
     private GameObject _damageBlock;
     private bool _isHookCooldown = false;
     private Vector2 _moveVector = new Vector2();
+    public int _stateAnim;
     void Start()
     {
         CurHp = Hp;
@@ -47,7 +48,20 @@ public class Player : Entity
             {
                 _moveVector.x = Input.GetAxisRaw("Horizontal");
                 _moveVector.y = Input.GetAxisRaw("Vertical");
-                gameObject.GetComponent<Rigidbody2D>().velocity = _moveVector * (SpeedMove); 
+                gameObject.GetComponent<Rigidbody2D>().velocity = _moveVector * (SpeedMove);
+                _stateAnim = 0;
+                if (_moveVector.y < 0)
+                    _stateAnim = 2;
+                if (_moveVector.y > 0)
+                    _stateAnim = 1;
+                if (_moveVector.x != 0)
+                    _stateAnim = 3;
+
+                if (!_damageBlock)
+                    if (_moveVector.x < 0)
+                        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                    else
+                        gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
            if (Input.GetButton("Fire1"))
             {
@@ -55,6 +69,8 @@ public class Player : Entity
             }
 
         }
+
+        AnimControl();
     }
 
 
@@ -92,9 +108,18 @@ public class Player : Entity
             Vector2 coord = _mousePos - (Vector2)transform.position;
             _naprVector = coord.normalized;
             coord = coord.normalized;
-            coord.x = transform.position.x + coord.x * 0.7f;
-            coord.y = transform.position.y + coord.y * 1.1f;
+            coord.x = transform.position.x + coord.x * 0.5f;
+            coord.y = transform.position.y - 0.2f + coord.y * 0.8f;
             _damageBlock = Instantiate(DamageBlockPrefab, coord, Quaternion.identity) as GameObject;
+
+            if (_naprVector.y < 0)
+            {
+                _damageBlock.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            }
+            else
+            {
+                _damageBlock.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
+            }
 
 
             float angle = Vector2.Angle(_naprVector, new Vector2(0,1));
@@ -113,6 +138,29 @@ public class Player : Entity
             _isCoooldownAttak = true;
             StartCoroutine("DamageBlockController");
             StartCoroutine("ColldowAttakEnum");
+            if (_naprVector.x < 0)
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            else
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+
+        }
+    }
+
+
+    private void AnimControl()
+    {
+        if (_damageBlock)
+        {
+            _stateAnim = 4;
+        }
+        if (gameObject.GetComponent<Animator>().GetInteger("State") != _stateAnim)
+        {
+            gameObject.GetComponent<Animator>().SetBool("GoBack", true);
+            gameObject.GetComponent<Animator>().SetInteger("State", _stateAnim);
+        }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("GoBack", false);
         }
     }
 

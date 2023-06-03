@@ -23,7 +23,7 @@ public class DefaultHook : Hook
             if (_hoolEnd)
             {
                 SelfEntity.GetComponent<Entity>().setIsHookPush(false);
-                Destroy(gameObject);
+                HookDetele();
             }
         }
     }
@@ -43,7 +43,10 @@ public class DefaultHook : Hook
         }
         if (Aim && Aim.tag == "Enemy")
         {
-            if(Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Light)
+            Aim.gameObject.GetComponent<Entity>().IsOnThehook = true;
+            Aim.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            Aim.gameObject.GetComponent<Enemy>().StopMob();
+            if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Light)
                _hoolEnd = Aim.gameObject.GetComponent<Entity>().SuperEntityMoveGrap(SelfEntity, SpeedGrap);
             else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Heavy)
             {
@@ -68,11 +71,14 @@ public class DefaultHook : Hook
             StopHook();
             SelfEntity.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            SelfEntity.GetComponent<Player>()._stateAnim = 0;
         }
     }
 
     public override void HookDetele()
     {
+        if (Aim && Aim.tag == "Enemy")
+            Aim.gameObject.GetComponent<Entity>().IsOnThehook = false;
         Destroy(gameObject);
     }
 }

@@ -2,36 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightMob1 : Enemy
+public class LightRangeMob : Enemy
 {
-
     private Vector2 _moveVector = new Vector2();
     [SerializeField] private DamageColliderEnemy DamageCollider;
     [SerializeField] private GameObject MeinPlayer;
+    [SerializeField] private int RangeDamage;
+    [SerializeField] private int BulletSpeed = 1;
+    [SerializeField] private float PlayerDist = 2f;
+    [SerializeField] private GameObject BulletPrefab;
 
     public void Start()
     {
-        StartCoroutine("ChangeMove");
         DamageCollider.Damage = Damage;
         CurHp = Hp;
     }
 
     private void FixedUpdate()
     {
-    if (!IsDamageReceived && !IsOnThehook)
-        Move();
+        if (!IsDamageReceived)
+        {
+            Move();
+        }
     }
 
     public override void Move()
     {
+        ControllerMove();
         gameObject.GetComponent<Rigidbody2D>().velocity = _moveVector * SpeedMove;
-        Vector2 cord = MeinPlayer.transform.position - transform.position;
-        cord = cord.normalized;
-        gameObject.GetComponent<Rigidbody2D>().velocity = cord * SpeedMove;
-        if (cord.x > 0)
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+    }
+
+    public void ControllerMove()
+    {
+        var distans = MeinPlayer.GetComponent<Collider2D>().Distance(gameObject.GetComponent<Collider2D>());
+        if (distans.distance < PlayerDist)
+        {
+            _moveVector = MeinPlayer.transform.position - gameObject.transform.position;
+            _moveVector = -1 * _moveVector.normalized;
+        }
         else
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        {
+            _moveVector.x = Random.Range(-1f, 1f);
+            _moveVector.y = Random.Range(-1f, 1f);
+
+        }
+
+    }
+    
+    public void SpawnBullet()
+    {
+
+        if (!IsDamageReceived)
+        {
+            GameObject bullet = GameObject.Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            bullet.GetComponent<Bullet>().Damage = RangeDamage;
+            bullet.GetComponent<Bullet>().Speed = BulletSpeed;
+            bullet.GetComponent<Bullet>().position = MeinPlayer.transform.position;
+        }
     }
 
 

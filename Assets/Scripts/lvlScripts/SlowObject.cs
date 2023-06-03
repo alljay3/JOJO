@@ -10,7 +10,7 @@ public class SlowObject : MonoBehaviour
         if (collision.tag == "Foot")
         {
             collision.GetComponent<Foot>().MainPlayer.GetComponent<Player>().setSlowed();
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
+            collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 2;
         }
         if (collision.tag == "Enemy")
         {
@@ -25,11 +25,11 @@ public class SlowObject : MonoBehaviour
         if (collision.tag == "Foot")
         {
             collision.GetComponent<Foot>().MainPlayer.GetComponent<Player>().removeSlowed();
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 4;
+            collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 2;
         }
         if (collision.tag == "Enemy")
         {
-               collision.GetComponent<SpriteRenderer>().sortingOrder = 5;
+               collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
     }
 }

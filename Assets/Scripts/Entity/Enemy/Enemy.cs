@@ -32,4 +32,10 @@ abstract public class Enemy : Entity
 
 
     abstract public void Move();
+
+
+    public virtual void StopMob()
+    {
+        gameObject.GetComponent<Animator>().Rebind();
+    }
 }
