@@ -32,7 +32,7 @@ abstract public class Enemy : Entity
     [SerializeField] public TypeAttack TypeOfAttack;
     [SerializeField] public TypeMovement TypeOfMove;
     [SerializeField] public GameObject MeinPlayer;
-
+    [SerializeField] public int DifficultyWeight;
     abstract public void Move();
 
 
