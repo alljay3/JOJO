@@ -14,9 +14,13 @@ public class DefaultHook : Hook
         _naprVector = _mousePos - (Vector2)transform.position;
         transform.LookAt2D(transform.right, _mousePos);
         transform.GetComponent<Rigidbody2D>().velocity = _naprVector.normalized * Speed;
+        gameObject.GetComponent<LineRenderer>().SetPosition(0, SelfEntity.transform.position);
+        gameObject.GetComponent<LineRenderer>().SetPosition(1, gameObject.transform.position);
     }
     void FixedUpdate()
     {
+        gameObject.GetComponent<LineRenderer>().SetPosition(0, SelfEntity.transform.position);
+        gameObject.GetComponent<LineRenderer>().SetPosition(1, gameObject.transform.position);
         if (_isGrap)
         {
             HookAction();
