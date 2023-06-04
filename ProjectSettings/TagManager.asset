@@ -7,6 +7,7 @@ TagManager:
   - Walls
   - Enemy
   - Foot
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Foot2
   - Bullet
   - Walls
-  - 
+  - FlyMobs
   - 
   - 
   - 

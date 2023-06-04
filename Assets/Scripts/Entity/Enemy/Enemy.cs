@@ -7,6 +7,8 @@ using UnityEngine;
 
 abstract public class Enemy : Entity
 {
+
+
     public enum SeverityMob
     {
         Light,
@@ -29,7 +31,7 @@ abstract public class Enemy : Entity
     [SerializeField] public SeverityMob TypeOfSeverity;
     [SerializeField] public TypeAttack TypeOfAttack;
     [SerializeField] public TypeMovement TypeOfMove;
-
+    [SerializeField] public GameObject MeinPlayer;
 
     abstract public void Move();
 

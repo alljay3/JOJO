@@ -7,10 +7,12 @@ public class LightMob1 : Enemy
 
     private Vector2 _moveVector = new Vector2();
     [SerializeField] private DamageColliderEnemy DamageCollider;
-    [SerializeField] private GameObject MeinPlayer;
+    
 
     public void Start()
     {
+        MeinPlayer = GameObject.Find("player");
+
         DamageCollider.Damage = Damage;
         CurHp = Hp;
     }

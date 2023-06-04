@@ -6,7 +6,7 @@ public class LightRangeMob : Enemy
 {
     private Vector2 _moveVector = new Vector2();
     [SerializeField] private DamageColliderEnemy DamageCollider;
-    [SerializeField] private GameObject MeinPlayer;
+  
     [SerializeField] private int RangeDamage;
     [SerializeField] private int BulletSpeed = 1;
     [SerializeField] private float PlayerDist = 2f;
@@ -14,6 +14,7 @@ public class LightRangeMob : Enemy
 
     public void Start()
     {
+        MeinPlayer = GameObject.Find("player");
         DamageCollider.Damage = Damage;
         CurHp = Hp;
     }
