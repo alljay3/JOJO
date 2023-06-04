@@ -63,17 +63,18 @@ public class LightRangeMob : Enemy
     }
 
 
+    public override void TakeDamage(int damage, Vector2 posintionDamage)
+    {
+        base.TakeDamage(damage, posintionDamage);
+        StopMob();
+    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Foot")
         {
             collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 2;
-        }
-        if (collision.tag == "Enemy")
-        {
-            if (collision.GetComponent<Enemy>().TypeOfMove != Enemy.TypeMovement.Fly)
-                collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
 
     }
@@ -82,10 +83,6 @@ public class LightRangeMob : Enemy
         if (collision.tag == "Foot")
         {
             collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        }
-        if (collision.tag == "Enemy")
-        {
-            collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
     }
 }

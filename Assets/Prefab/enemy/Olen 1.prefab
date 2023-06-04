@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8583887692332314193}
   - component: {fileID: 8583887692332314222}
-  - component: {fileID: 8583887692332314223}
+  - component: {fileID: 8811530640912437678}
   - component: {fileID: 8583887692332314195}
   - component: {fileID: 8583887692332314192}
   - component: {fileID: 8583887692332314194}
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8583887692332314223
+--- !u!114 &8811530640912437678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,25 +170,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 8583887692332314220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1639860633a0ba045ba2d8c85c4498ef, type: 3}
+  m_Script: {fileID: 11500000, guid: c7cdd6ef052be5b4ba3f279416d92095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 20
   SpeedMove: 2
   SpeedAttack: 1
-  PrefabSpellHook: {fileID: 2957248240207806334, guid: f120aae16a9747146a3a76d171f45f36, type: 3}
+  PrefabSpellHook: {fileID: 0}
   Damage: 1
   Armor: 1
   TimeDamageRecive: 0.2
   TimeInvulnerability: 0.3
-  SlowPercent: 40
+  SlowPercent: 0.4
   Weight: 1
   IsOnThehook: 0
   TypeOfSeverity: 1
   TypeOfAttack: 0
   TypeOfMove: 1
   MeinPlayer: {fileID: 0}
-  DamageCollider: {fileID: 8583887690625086015}
+  DamageCollider: {fileID: 0}
+  TimeRush: 3
+  TimeColldownSkill: 10
+  MaxDistant: 2
 --- !u!50 &8583887692332314195
 Rigidbody2D:
   serializedVersion: 4

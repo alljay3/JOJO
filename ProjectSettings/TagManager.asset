@@ -21,8 +21,8 @@ TagManager:
   - Bullet
   - Walls
   - FlyMobs
-  - 
-  - 
+  - DamageBlock
+  - Invulnerable
   - 
   - 
   - 
