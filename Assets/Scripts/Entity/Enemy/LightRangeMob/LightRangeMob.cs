@@ -76,11 +76,6 @@ public class LightRangeMob : Enemy
         {
             collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 2;
         }
-        if (collision.tag == "Enemy")
-        {
-            if (collision.GetComponent<Enemy>().TypeOfMove != Enemy.TypeMovement.Fly)
-                collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
-        }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -88,10 +83,6 @@ public class LightRangeMob : Enemy
         if (collision.tag == "Foot")
         {
             collision.GetComponent<Foot>().MainPlayer.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        }
-        if (collision.tag == "Enemy")
-        {
-            collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
     }
 }
