@@ -20,7 +20,7 @@ public class DefaultHook : Hook
         if (_isGrap)
         {
             HookAction();
-            if (_hoolEnd)
+            if (_hoolEnd || !Aim)
             {
                 SelfEntity.GetComponent<Entity>().setIsHookPush(false);
                 HookDetele();
@@ -37,6 +37,12 @@ public class DefaultHook : Hook
 
     void HookAction()
     {
+        if (SelfEntity.GetComponent<Player>()._stateAnim != 0)
+        {
+            SelfEntity.GetComponent<Animator>().SetBool("GoBack", true);
+            SelfEntity.GetComponent<Player>()._stateAnim = 0;
+        }
+
         if (Aim && Aim.tag == "Walls")
         {
             _hoolEnd = SelfEntity.GetComponent<Entity>().SuperEntityMoveGrap(gameObject, SpeedGrap);
@@ -71,7 +77,7 @@ public class DefaultHook : Hook
             StopHook();
             SelfEntity.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            SelfEntity.GetComponent<Player>()._stateAnim = 0;
+            SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = true;
         }
     }
 
@@ -79,6 +85,7 @@ public class DefaultHook : Hook
     {
         if (Aim && Aim.tag == "Enemy")
             Aim.gameObject.GetComponent<Entity>().IsOnThehook = false;
+        SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = false;
         Destroy(gameObject);
     }
 }

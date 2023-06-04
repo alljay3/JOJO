@@ -44,7 +44,7 @@ public class Player : Entity
                     HookShot.GetComponent<Hook>().HookDetele();
                 }
            }
-           if (!isHookPush)
+           if (!IsOnThehook)
             {
                 _moveVector.x = Input.GetAxisRaw("Horizontal");
                 _moveVector.y = Input.GetAxisRaw("Vertical");

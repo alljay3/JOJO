@@ -11,7 +11,6 @@ public class LightMob1 : Enemy
 
     public void Start()
     {
-        StartCoroutine("ChangeMove");
         DamageCollider.Damage = Damage;
         CurHp = Hp;
     }
