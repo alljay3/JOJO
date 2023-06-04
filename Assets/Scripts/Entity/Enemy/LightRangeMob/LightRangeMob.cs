@@ -63,6 +63,12 @@ public class LightRangeMob : Enemy
     }
 
 
+    public override void TakeDamage(int damage, Vector2 posintionDamage)
+    {
+        base.TakeDamage(damage, posintionDamage);
+        StopMob();
+    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
