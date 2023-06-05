@@ -8,6 +8,7 @@ public class RangeStatuy : Enemy
     [SerializeField] private int RangeDamage;
     [SerializeField] private int BulletSpeed = 1;
     [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private GameObject boxdetec;
     private bool isStart = false;
 
     public void Start()
@@ -15,7 +16,7 @@ public class RangeStatuy : Enemy
         MeinPlayer = GameObject.Find("player");
         DamageCollider.Damage = Damage;
         CurHp = Hp;
-        //StartCoroutine("gogo");
+        StartCoroutine("gogo");
     }
 
 
@@ -30,6 +31,7 @@ public class RangeStatuy : Enemy
         isStart = true;
         DamageCollider.enabled = true;
         tag = "Enemy";
+        boxdetec.tag = "WallsNoBullet";
     }
 
     private void FixedUpdate()

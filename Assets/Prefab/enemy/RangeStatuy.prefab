@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 683818639756999216}
   m_Layer: 10
   m_Name: boxdetec
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683818640576108906}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.27, y: 1.5, z: 0.035763588}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005184889, y: -1.2888917}
+  m_Offset: {x: 0.008423209, y: -1.2979978}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9474926, y: 1.3200061}
+  m_Size: {x: 2.0632422, y: 1.338218}
   m_EdgeRadius: 0
 --- !u!114 &683818640576108904
 MonoBehaviour:
@@ -293,6 +293,7 @@ MonoBehaviour:
   RangeDamage: 5
   BulletSpeed: 8
   BulletPrefab: {fileID: 6422075148684891057, guid: d3856ab702b30294a881afa4763d80ab, type: 3}
+  boxdetec: {fileID: 683818639756999228}
 --- !u!95 &683818640576108905
 Animator:
   serializedVersion: 4
@@ -330,7 +331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &683818641636642730
 Transform:
   m_ObjectHideFlags: 0
