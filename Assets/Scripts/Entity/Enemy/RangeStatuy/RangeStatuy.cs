@@ -16,7 +16,7 @@ public class RangeStatuy : Enemy
         MeinPlayer = GameObject.Find("player");
         DamageCollider.Damage = Damage;
         CurHp = Hp;
-        StartCoroutine("gogo");
+        //StartCoroutine("gogo");
     }
 
 
