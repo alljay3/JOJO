@@ -56,9 +56,7 @@ public class AddRoom : MonoBehaviour
                 float Xoffset = Random.Range(0.0f, 1.0f);
                 float Yoffset = Random.Range(0.0f, 0.5f);
                 GameObject tree = Instantiate(treeType, spawner.position + new Vector3(Xoffset, Yoffset,0), Quaternion.identity) as GameObject;
-                //Renderer myRenderer = tree.getComponent<Renderer>();
-                //myRenderer.sortingLayerName = "TreesSortingLayer";
-                //SmyRenderer.sortingOrder = 10;
+               
                 if (spawner.position.y>0 && spawner.position.x>-8.5f && spawner.position.x <8)
                 {
                     tree.GetComponent<TreeScript>().isTopTree = true;
@@ -91,9 +89,7 @@ public class AddRoom : MonoBehaviour
 
     public void CheckEnemies()
     {
-        
-        Debug.Log("start");
-        Debug.Log(enemies.Count);
+      
         if (spawned)
         {
             if (enemies.Count == 0)
@@ -101,7 +97,7 @@ public class AddRoom : MonoBehaviour
                 if (NumberOfWaves > 1)
                 {
 
-                    //yield return new WaitUntil(() => enemies.Count == 0);
+                    
 
                     SpawnEnemies(RoomDifficultyWeight);
                     NumberOfWaves--;
@@ -109,7 +105,7 @@ public class AddRoom : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("aaaaaaaaaaaaaaaaaaa");
+                    
                     DestroyDoors();
                 }
             }
@@ -139,29 +135,7 @@ public class AddRoom : MonoBehaviour
         {
             CheckEnemies();
         }
-        //Debug.Log("FixedUpdate time :" + Time.deltaTime);
-        //Debug.Log(enemies.Count);
-        //if (spawned && enemies.Count == 0)
-        //{
-        //    Debug.Log("No ENEMIES");
-        //    if (NumberOfWaves != 0)
-        //    {
-
-        //    }
-        //    else
-        //    {
-        //        foreach (GameObject door in Doors)
-        //        {
-        //            if (door != null)   /*&& door.transform.childCount != 0*/
-        //            {
-        //                Destroy(door);
-        //            }
-        //        }
-        //        NumberOfWaves--;
-        //    }
-
-           
-        //}
+        
     }
 
     void Update()
