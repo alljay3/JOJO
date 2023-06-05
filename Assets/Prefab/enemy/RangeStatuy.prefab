@@ -283,6 +283,7 @@ MonoBehaviour:
   TimeInvulnerability: 0.2
   SlowPercent: 0.4
   Weight: 0
+  CurHp: 0
   IsOnThehook: 0
   TypeOfSeverity: 1
   TypeOfAttack: 1
@@ -331,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &683818641636642730
 Transform:
   m_ObjectHideFlags: 0
