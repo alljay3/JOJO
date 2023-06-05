@@ -23,7 +23,7 @@ public class Entity : MonoBehaviour
     protected bool isHookPush;
     protected GameObject HookShot;
     protected SpriteRenderer spriteRenderer;
-    protected int CurHp;
+    public int CurHp;
     public bool IsOnThehook = false;
 
 

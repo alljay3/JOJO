@@ -10,7 +10,7 @@ public class Player : Entity
     [SerializeField] float CooldownAttak = 1;
     private bool _isCoooldownAttak = false;
     private GameObject _damageBlock;
-    private bool _isHookCooldown = false;
+    public bool _isHookCooldown = false;
     private Vector2 _moveVector = new Vector2();
     public int _stateAnim;
     void Start()
