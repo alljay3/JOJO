@@ -81,10 +81,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7661653264188087930}
+  - component: {fileID: 7661653264188087932}
   - component: {fileID: 7661653264188087935}
   - component: {fileID: 7661653264188087929}
   - component: {fileID: 7661653264188087928}
-  - component: {fileID: 7661653264188087932}
   - component: {fileID: 7661653264188087931}
   m_Layer: 11
   m_Name: MuxaRange 1
@@ -109,6 +109,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7661653264188087932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7661653264188088197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e91ee175cb3dc64ba965089433914e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 10
+  SpeedMove: 1
+  SpeedAttack: 1
+  PrefabSpellHook: {fileID: 0}
+  Damage: 1
+  Armor: 1
+  TimeDamageRecive: 0.2
+  TimeInvulnerability: 0.2
+  SlowPercent: 0.4
+  Weight: 2
+  CurHp: 0
+  IsOnThehook: 0
+  levelToLoad: 0
+  TypeOfSeverity: 0
+  TypeOfAttack: 0
+  TypeOfMove: 2
+  MeinPlayer: {fileID: 0}
+  DifficultyWeight: 20
+  DamageCollider: {fileID: 7661653263674144609}
+  RangeDamage: 5
+  BulletSpeed: 4
+  PlayerDist: 2
+  BulletPrefab: {fileID: 2768931470203194646, guid: 2f887c1af914aa449b50618d96c82132, type: 3}
 --- !u!212 &7661653264188087935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -208,38 +243,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5332472, y: 1.2463942}
   m_EdgeRadius: 0
---- !u!114 &7661653264188087932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661653264188088197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e91ee175cb3dc64ba965089433914e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 10
-  SpeedMove: 1
-  SpeedAttack: 1
-  PrefabSpellHook: {fileID: 0}
-  Damage: 1
-  Armor: 1
-  TimeDamageRecive: 0.2
-  TimeInvulnerability: 0.2
-  SlowPercent: 0.4
-  Weight: 2
-  IsOnThehook: 0
-  TypeOfSeverity: 0
-  TypeOfAttack: 0
-  TypeOfMove: 2
-  MeinPlayer: {fileID: 0}
-  DamageCollider: {fileID: 7661653263674144609}
-  RangeDamage: 5
-  BulletSpeed: 4
-  PlayerDist: 2
-  BulletPrefab: {fileID: 2768931470203194646, guid: 2f887c1af914aa449b50618d96c82132, type: 3}
 --- !u!95 &7661653264188087931
 Animator:
   serializedVersion: 4

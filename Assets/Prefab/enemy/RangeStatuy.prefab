@@ -133,10 +133,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683818640576108899}
+  - component: {fileID: 683818640576108904}
   - component: {fileID: 683818640576108908}
   - component: {fileID: 683818640576108909}
   - component: {fileID: 683818640576108910}
-  - component: {fileID: 683818640576108904}
   - component: {fileID: 683818640576108905}
   m_Layer: 7
   m_Name: RangeStatuy
@@ -162,6 +162,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683818640576108904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683818640576108906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b4845b8b8a22440ab40c4b4a6411f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 20
+  SpeedMove: 1
+  SpeedAttack: 1
+  PrefabSpellHook: {fileID: 0}
+  Damage: 1
+  Armor: 1
+  TimeDamageRecive: 0.2
+  TimeInvulnerability: 0.2
+  SlowPercent: 0.4
+  Weight: 0
+  CurHp: 0
+  IsOnThehook: 0
+  levelToLoad: 0
+  TypeOfSeverity: 1
+  TypeOfAttack: 1
+  TypeOfMove: 0
+  MeinPlayer: {fileID: 0}
+  DifficultyWeight: 0
+  DamageCollider: {fileID: 683818641636642709}
+  RangeDamage: 5
+  BulletSpeed: 8
+  BulletPrefab: {fileID: 6422075148684891057, guid: d3856ab702b30294a881afa4763d80ab, type: 3}
+  boxdetec: {fileID: 683818639756999228}
+  unActiveBox: {fileID: 0}
 --- !u!212 &683818640576108908
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -261,41 +297,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0632422, y: 1.338218}
   m_EdgeRadius: 0
---- !u!114 &683818640576108904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683818640576108906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b4845b8b8a22440ab40c4b4a6411f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 20
-  SpeedMove: 1
-  SpeedAttack: 1
-  PrefabSpellHook: {fileID: 0}
-  Damage: 1
-  Armor: 1
-  TimeDamageRecive: 0.2
-  TimeInvulnerability: 0.2
-  SlowPercent: 0.4
-  Weight: 0
-  CurHp: 0
-  IsOnThehook: 0
-  TypeOfSeverity: 1
-  TypeOfAttack: 1
-  TypeOfMove: 0
-  MeinPlayer: {fileID: 0}
-  DifficultyWeight: 0
-  DamageCollider: {fileID: 683818641636642709}
-  RangeDamage: 5
-  BulletSpeed: 8
-  BulletPrefab: {fileID: 6422075148684891057, guid: d3856ab702b30294a881afa4763d80ab, type: 3}
-  boxdetec: {fileID: 683818639756999228}
-  unActiveBox: {fileID: 0}
 --- !u!95 &683818640576108905
 Animator:
   serializedVersion: 4
