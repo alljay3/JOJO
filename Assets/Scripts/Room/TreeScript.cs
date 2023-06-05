@@ -17,7 +17,7 @@ public class TreeScript : MonoBehaviour
         if (isTopTree)
         {
             
-            myRenderer.sortingOrder = 1;
+            myRenderer.sortingOrder = 2;
         }
         else
         {

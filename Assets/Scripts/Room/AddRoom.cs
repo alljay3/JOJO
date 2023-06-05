@@ -25,7 +25,7 @@ public class AddRoom : MonoBehaviour
     [Header("Powerups")]
     public GameObject[] buffs;
 
-    [HideInInspector] public List<GameObject> enemies;
+    public List<GameObject> enemies;
 
     //private RoomVariants variants;
     private bool spawned;
@@ -39,14 +39,14 @@ public class AddRoom : MonoBehaviour
     
     void Start()
     {
-        
+        spawned = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !spawned)
         {
-            spawned = true;
+            treespawned = true;
             foreach (Transform spawner in treeSpawners)
             {
                 int rand = Random.Range(0, treeTypes.Length);
@@ -69,35 +69,60 @@ public class AddRoom : MonoBehaviour
             }
 
 
+            SpawnEnemies(RoomDifficultyWeight);
 
-            foreach (Transform spawner in enemySpawners)
-            {
-                int rand = Random.Range(0, enemyTypes.Length);
-                
-                GameObject enemyType = enemyTypes[rand];
-                //LightMob1.MeinPlayer= GameObject.Find("player");
 
-                //enemyType.GetComponent<MeinPlayer>() = GameObject.FindGameObjectsWithTag("Player");
-                GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
-                //enemy.setPlayer(GameObject.FindGameObjectsWithTag("Player"));
-                //enemy.GetComponent<MeinPlayer>() = GameObject.FindGameObjectsWithTag("Player");
-                //enemy.LightMob1.setPlayer();
-                enemy.transform.parent = transform;
-                enemies.Add(enemy);
-            }
-            StartCoroutine(CheckEnemies());
+            CheckEnemies();
         }
     }
 
-    IEnumerator CheckEnemies()
+    void SpawnEnemies(int diff_weight)
     {
-        yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => enemies.Count == 0);
-        DestroyDoors();
+        foreach (Transform spawner in enemySpawners)
+        {
+            int rand = Random.Range(0, enemyTypes.Length);
+            GameObject enemyType = enemyTypes[rand];
+            GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = transform;
+            enemies.Add(enemy);
+        }
+        spawned = true;
+    }
+
+    public void CheckEnemies()
+    {
+        
+        Debug.Log("start");
+        Debug.Log(enemies.Count);
+        if (spawned)
+        {
+            if (enemies.Count == 0)
+            {
+                if (NumberOfWaves > 1)
+                {
+
+                    //yield return new WaitUntil(() => enemies.Count == 0);
+
+                    SpawnEnemies(RoomDifficultyWeight);
+                    NumberOfWaves--;
+
+                }
+                else
+                {
+                    Debug.Log("aaaaaaaaaaaaaaaaaaa");
+                    DestroyDoors();
+                }
+            }
+        }
+       
+       
+      
+       
     }
 
     public void DestroyDoors()
     {
+
         foreach(GameObject door in Doors)
         {
             if (door != null)   /*&& door.transform.childCount != 0*/
@@ -107,8 +132,37 @@ public class AddRoom : MonoBehaviour
         }
         doorDestroyed = true;
     }
+    void FixedUpdate()
+    {
+        enemies.RemoveAll(obj => obj == null);
+        if (spawned && !doorDestroyed)
+        {
+            CheckEnemies();
+        }
+        //Debug.Log("FixedUpdate time :" + Time.deltaTime);
+        //Debug.Log(enemies.Count);
+        //if (spawned && enemies.Count == 0)
+        //{
+        //    Debug.Log("No ENEMIES");
+        //    if (NumberOfWaves != 0)
+        //    {
 
+        //    }
+        //    else
+        //    {
+        //        foreach (GameObject door in Doors)
+        //        {
+        //            if (door != null)   /*&& door.transform.childCount != 0*/
+        //            {
+        //                Destroy(door);
+        //            }
+        //        }
+        //        NumberOfWaves--;
+        //    }
 
+           
+        //}
+    }
 
     void Update()
     {
