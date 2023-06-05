@@ -70,6 +70,10 @@ public class Player : Entity
 
         }
 
+    }
+
+    private void FixedUpdate()
+    {
         AnimControl();
     }
 
@@ -147,7 +151,7 @@ public class Player : Entity
     }
 
 
-    private void AnimControl()
+    public void AnimControl()
     {
         if (_damageBlock && _stateAnim != 5)
         {

@@ -51,9 +51,8 @@ public class DefaultHook : Hook
         if (Aim && Aim.tag == "Walls")
         {
             _hoolEnd = SelfEntity.GetComponent<Entity>().SuperEntityMoveGrap(gameObject, SpeedGrap);
-            if (SelfEntity.GetComponent<Player>()._stateAnim != 5)
-                SelfEntity.GetComponent<Animator>().Play("PlayerPushHook");
             SelfEntity.GetComponent<Player>()._stateAnim = 5;
+
         }
         if (Aim && Aim.tag == "Enemy")
         {
@@ -66,12 +65,10 @@ public class DefaultHook : Hook
             }
             else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Heavy)
             {
-                if (SelfEntity.GetComponent<Player>()._stateAnim != 5)
-                    SelfEntity.GetComponent<Animator>().Play("PlayerPushHook");
                 SelfEntity.GetComponent<Player>()._stateAnim = 5;
                 _hoolEnd = SelfEntity.gameObject.GetComponent<Entity>().SuperEntityMoveGrap(Aim, SpeedGrap);
             }
-            else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Bosses)
+            else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Bosses)   
             {
                 HookDetele();
             }
@@ -90,9 +87,6 @@ public class DefaultHook : Hook
     {
         if (!_isGrap && (collider.tag == "Walls" || collider.tag == "Enemy" || collider.tag == "Background"))
         {
-            if (SelfEntity.GetComponent<Player>()._stateAnim != 0)
-                SelfEntity.GetComponent<Animator>().Play("PlayerHold");
-            SelfEntity.GetComponent<Player>()._stateAnim = 0;
             _isGrap = true;
             Aim = collider.gameObject;
             StopHook();
@@ -110,6 +104,8 @@ public class DefaultHook : Hook
         SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = false;
         SelfEntity.GetComponent<Entity>().setIsHookPush(false);
         SelfEntity.GetComponent<Player>()._stateAnim = 0;
+        SelfEntity.GetComponent<Player>().AnimControl();
+        SelfEntity.GetComponent<Animator>().Play("PlayerHold");
         Destroy(gameObject);
     }
 }
