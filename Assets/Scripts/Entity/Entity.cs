@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Entity : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class Entity : MonoBehaviour
     public int CurHp;
     public bool IsOnThehook = false;
 
-
+    public int levelToLoad;
 
     void Update()
     {
@@ -110,6 +111,11 @@ public class Entity : MonoBehaviour
         }
         if (CurHp <= 0)
         {
+          
+            if (gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene(levelToLoad);
+            }
             Destroy(gameObject);
         }
     }

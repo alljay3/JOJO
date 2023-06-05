@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class RangeStatuy : Enemy
 {
-    [SerializeField] private DamageColliderEnemy DamageCollider;
+    [SerializeField] private GameObject DamageCollider;
     [SerializeField] private int RangeDamage;
     [SerializeField] private int BulletSpeed = 1;
     [SerializeField] private GameObject BulletPrefab;
     [SerializeField] private GameObject boxdetec;
+    [SerializeField] private GameObject unActiveBox;
     private bool isStart = false;
 
     public void Start()
     {
         MeinPlayer = GameObject.Find("player");
-        DamageCollider.Damage = Damage;
+        //DamageCollider.Damage = Damage;
+        DamageCollider.GetComponent<DamageColliderEnemy>().Damage = Damage;
         CurHp = Hp;
         //StartCoroutine("gogo");
     }
@@ -23,13 +25,15 @@ public class RangeStatuy : Enemy
     public void Active()
     {
         GetComponent<Animator>().enabled = true;
+       
     }
 
     public void Probujdenie()
     {
         GetComponent<Animator>().Play("attacked");
         isStart = true;
-        DamageCollider.enabled = true;
+        //dDamageCollider.enabled = true;
+        DamageCollider.SetActive(true);
         tag = "Enemy";
         boxdetec.tag = "WallsNoBullet";
     }
