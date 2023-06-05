@@ -9731,7 +9731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3397432255769804061, guid: 160ad47ab165bc24e8179f56e6126532, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 160ad47ab165bc24e8179f56e6126532, type: 3}
@@ -11753,6 +11753,7 @@ MonoBehaviour:
   Weight: 2
   CurHp: 0
   IsOnThehook: 0
+  levelToLoad: 0
   TypeOfSeverity: 0
   TypeOfAttack: 0
   TypeOfMove: 2
@@ -12786,6 +12787,7 @@ MonoBehaviour:
   Weight: 1
   CurHp: 0
   IsOnThehook: 0
+  levelToLoad: 0
   TypeOfSeverity: 0
   TypeOfAttack: 0
   TypeOfMove: 1
@@ -13176,6 +13178,7 @@ MonoBehaviour:
   Weight: 1.5
   CurHp: 0
   IsOnThehook: 0
+  levelToLoad: 0
   Arm: {fileID: 1536648345}
   TimeCooldownHook: 1.5
   DamageBlockPrefab: {fileID: 5244990724030142375, guid: 87d0b51698ba6dc4186456710517102a, type: 3}
@@ -13751,7 +13754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661653264188088197, guid: 7533482e3948d1648b60ac1d28c162b3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7533482e3948d1648b60ac1d28c162b3, type: 3}
@@ -15570,6 +15573,7 @@ MonoBehaviour:
   Weight: 1
   CurHp: 0
   IsOnThehook: 0
+  levelToLoad: 0
   TypeOfSeverity: 0
   TypeOfAttack: 0
   TypeOfMove: 1
