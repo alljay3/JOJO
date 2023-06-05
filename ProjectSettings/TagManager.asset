@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Foot
   - Door
+  - WallsNoBullet
   layers:
   - Default
   - TransparentFX

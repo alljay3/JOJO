@@ -12,7 +12,8 @@ abstract public class Enemy : Entity
     public enum SeverityMob
     {
         Light,
-        Heavy
+        Heavy,
+        Bosses
     }
 
     public enum TypeMovement

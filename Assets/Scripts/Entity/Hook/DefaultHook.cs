@@ -26,7 +26,6 @@ public class DefaultHook : Hook
             HookAction();
             if (_hoolEnd || !Aim)
             {
-                SelfEntity.GetComponent<Entity>().setIsHookPush(false);
                 HookDetele();
             }
         }
@@ -62,6 +61,11 @@ public class DefaultHook : Hook
             {
                 _hoolEnd = SelfEntity.gameObject.GetComponent<Entity>().SuperEntityMoveGrap(Aim, SpeedGrap);
             }
+            else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Bosses)
+            {
+                HookDetele();
+            }
+
             transform.position = Aim.transform.position;
         }
 
@@ -82,6 +86,7 @@ public class DefaultHook : Hook
             SelfEntity.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = true;
+            
         }
     }
 
@@ -90,6 +95,7 @@ public class DefaultHook : Hook
         if (Aim && Aim.tag == "Enemy")
             Aim.gameObject.GetComponent<Entity>().IsOnThehook = false;
         SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = false;
+        SelfEntity.GetComponent<Entity>().setIsHookPush(false);
         Destroy(gameObject);
     }
 }

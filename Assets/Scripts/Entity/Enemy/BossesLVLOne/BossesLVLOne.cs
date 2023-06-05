@@ -8,6 +8,12 @@ public class BossesLVLOne : Enemy
     [SerializeField] private int RangeDamage;
     [SerializeField] private int BulletSpeed = 1;
     [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private int KolArrow = 5;
+    [SerializeField] private float TimeTornado = 5;
+    [SerializeField] private float SpeedTornadoArrow = 0.1f;
+
+    private int countArrow = 0;
+    private bool isTornado = false;
 
     public void Start()
     {
@@ -24,15 +30,27 @@ public class BossesLVLOne : Enemy
 
     public void SpawnBullet()
     {
+        GameObject bullet = GameObject.Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
+        bullet.GetComponent<Bullet>().Damage = RangeDamage;
+        bullet.GetComponent<Bullet>().Speed = BulletSpeed;
+        bullet.GetComponent<Bullet>().position = MeinPlayer.transform.position;
+        bullet.transform.LookAt2D(bullet.transform.right, MeinPlayer.transform.position);
+        countArrow += 1;
+    }
 
-        if (!IsDamageReceived)
-        {
-            GameObject bullet = GameObject.Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
-            bullet.GetComponent<Bullet>().Damage = RangeDamage;
-            bullet.GetComponent<Bullet>().Speed = BulletSpeed;
-            bullet.GetComponent<Bullet>().position = MeinPlayer.transform.position;
-            bullet.transform.LookAt2D(bullet.transform.right, MeinPlayer.transform.position);
-        }
+    public void SpawnBulletTornado(int ang)
+    {
+        Vector2 coord = new Vector2();
+        int r = 5;
+        float x = r * Mathf.Cos(Mathf.Deg2Rad * ang);
+        float y = r * Mathf.Sin(Mathf.Deg2Rad * ang);
+        coord.y = y + transform.position.y;
+        coord.x = x + transform.position.x;
+        GameObject bullet = GameObject.Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
+        bullet.GetComponent<Bullet>().Damage = RangeDamage;
+        bullet.GetComponent<Bullet>().Speed = BulletSpeed;
+        bullet.GetComponent<Bullet>().position = coord;
+        bullet.transform.LookAt2D(bullet.transform.right, coord);
     }
 
     public void FixedUpdate()
@@ -43,7 +61,52 @@ public class BossesLVLOne : Enemy
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         else
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+
+        GoTornado(); 
     }
+
+    void GoTornado()
+    {
+        if (countArrow >= KolArrow && !isTornado)
+        {
+            StartCoroutine("TornadoTimeEnum");
+        }
+    }
+
+    IEnumerator TornadoTimeEnum()
+    {
+        isTornado = true;
+        var tornado = StartCoroutine("TornadoBullet");
+        GetComponent<Animator>().Play("Tornado");
+        yield return new WaitForSeconds(TimeTornado);
+        StopCoroutine(tornado);
+        isTornado = false;
+        countArrow = 0;
+        GetComponent<Animator>().Play("Attack");
+
+    }
+
+    IEnumerator TornadoBullet()
+    {
+        int x = 0;
+        while (true)
+        {
+            SpawnBulletTornado(x);
+            yield return new WaitForSeconds(SpeedTornadoArrow);
+            x += 10;
+            if (x > 360)
+            {
+                x = 0;
+            }
+        }
+    }
+
+
+    public override void StopMob()
+    {
+        return;
+    }
+
 
     public override void TakeDamage(int damage, Vector2 posintionDamage)
     {
