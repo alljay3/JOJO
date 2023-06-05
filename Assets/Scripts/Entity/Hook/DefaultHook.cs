@@ -40,15 +40,20 @@ public class DefaultHook : Hook
 
     void HookAction()
     {
-        if (SelfEntity.GetComponent<Player>()._stateAnim != 0)
-        {
-            SelfEntity.GetComponent<Animator>().SetBool("GoBack", true);
-            SelfEntity.GetComponent<Player>()._stateAnim = 0;
-        }
+
+        if ((transform.position - SelfEntity.transform.position).x < 0)
+            SelfEntity.GetComponent<SpriteRenderer>().flipX = true;
+        else
+            SelfEntity.GetComponent<SpriteRenderer>().flipX = false;
+
+
 
         if (Aim && Aim.tag == "Walls")
         {
             _hoolEnd = SelfEntity.GetComponent<Entity>().SuperEntityMoveGrap(gameObject, SpeedGrap);
+            if (SelfEntity.GetComponent<Player>()._stateAnim != 5)
+                SelfEntity.GetComponent<Animator>().Play("PlayerPushHook");
+            SelfEntity.GetComponent<Player>()._stateAnim = 5;
         }
         if (Aim && Aim.tag == "Enemy")
         {
@@ -56,9 +61,14 @@ public class DefaultHook : Hook
             Aim.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             Aim.gameObject.GetComponent<Enemy>().StopMob();
             if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Light)
+            {
                _hoolEnd = Aim.gameObject.GetComponent<Entity>().SuperEntityMoveGrap(SelfEntity, SpeedGrap);
+            }
             else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Heavy)
             {
+                if (SelfEntity.GetComponent<Player>()._stateAnim != 5)
+                    SelfEntity.GetComponent<Animator>().Play("PlayerPushHook");
+                SelfEntity.GetComponent<Player>()._stateAnim = 5;
                 _hoolEnd = SelfEntity.gameObject.GetComponent<Entity>().SuperEntityMoveGrap(Aim, SpeedGrap);
             }
             else if (Aim.gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Bosses)
@@ -80,13 +90,16 @@ public class DefaultHook : Hook
     {
         if (!_isGrap && (collider.tag == "Walls" || collider.tag == "Enemy" || collider.tag == "Background"))
         {
+            if (SelfEntity.GetComponent<Player>()._stateAnim != 0)
+                SelfEntity.GetComponent<Animator>().Play("PlayerHold");
+            SelfEntity.GetComponent<Player>()._stateAnim = 0;
             _isGrap = true;
             Aim = collider.gameObject;
             StopHook();
             SelfEntity.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = true;
-            
+
         }
     }
 
@@ -96,6 +109,7 @@ public class DefaultHook : Hook
             Aim.gameObject.GetComponent<Entity>().IsOnThehook = false;
         SelfEntity.gameObject.GetComponent<Entity>().IsOnThehook = false;
         SelfEntity.GetComponent<Entity>().setIsHookPush(false);
+        SelfEntity.GetComponent<Player>()._stateAnim = 0;
         Destroy(gameObject);
     }
 }

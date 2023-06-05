@@ -149,7 +149,7 @@ public class Player : Entity
 
     private void AnimControl()
     {
-        if (_damageBlock)
+        if (_damageBlock && _stateAnim != 5)
         {
             _stateAnim = 4;
         }
