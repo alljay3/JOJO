@@ -26,7 +26,8 @@ public class SlolbScript : MonoBehaviour
         }
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            if (collision.GetComponent<Enemy>().TypeOfMove != Enemy.TypeMovement.Fly)
+                collision.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
     }
 }
