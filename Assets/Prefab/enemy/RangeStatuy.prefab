@@ -290,11 +290,12 @@ MonoBehaviour:
   TypeOfMove: 0
   MeinPlayer: {fileID: 0}
   DifficultyWeight: 0
-  DamageCollider: {fileID: 683818641636642708}
+  DamageCollider: {fileID: 683818641636642709}
   RangeDamage: 5
   BulletSpeed: 8
   BulletPrefab: {fileID: 6422075148684891057, guid: d3856ab702b30294a881afa4763d80ab, type: 3}
   boxdetec: {fileID: 683818639756999228}
+  unActiveBox: {fileID: 0}
 --- !u!95 &683818640576108905
 Animator:
   serializedVersion: 4
