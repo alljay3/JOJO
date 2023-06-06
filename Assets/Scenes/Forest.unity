@@ -178,6 +178,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1696580929769781627, guid: 90e8b977725482243b7b18051e0da4d9, type: 3}
+      propertyPath: statues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696580929769781627, guid: 90e8b977725482243b7b18051e0da4d9, type: 3}
+      propertyPath: statues.Array.data[1]
+      value: 
+      objectReference: {fileID: 1655551824}
+    - target: {fileID: 8121883421248477377, guid: 90e8b977725482243b7b18051e0da4d9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121883421248477377, guid: 90e8b977725482243b7b18051e0da4d9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e8b977725482243b7b18051e0da4d9, type: 3}
 --- !u!1001 &886429746
@@ -411,6 +427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09227a0ed4b88fb418b991f3c6545987, type: 3}
+--- !u!1 &1655551824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 683818640576108906, guid: c75803e3f30768f42814eaf2c502ac06, type: 3}
+  m_PrefabInstance: {fileID: 886429746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1826033073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -468,6 +489,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fd5fcca3202eba438cbfba1eb0beb58, type: 3}
+--- !u!1 &1908203223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1908203224}
+  m_Layer: 0
+  m_Name: pole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1908203224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908203223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.055754453, y: 3.1675396, z: 0.085520886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1914516496 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7036525613780406893, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
