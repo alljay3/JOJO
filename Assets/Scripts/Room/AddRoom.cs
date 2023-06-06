@@ -12,7 +12,7 @@ public class AddRoom : MonoBehaviour
     [Header("Doors")]
     [SerializeField] public GameObject[] Doors;
     [SerializeField] public GameObject doorEffect;
-    [SerializeField] public GameObject[] PossibleNextRoom;
+   
 
 
     [Header("Enemies")]
@@ -58,11 +58,7 @@ public class AddRoom : MonoBehaviour
         Debug.Log("ENTER");
         if (other.CompareTag("Player") && !spawned)
         {
-            Debug.Log("ASSSSSSSSSSSSSSSSSSSSSSSSSSS");
-            Debug.Log(NumberOfWaves);
-            Debug.Log(NumberOfWavesWithDifficult.Length - NumberOfWaves);
-            Debug.Log(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
-            Debug.Log("aDDDDDDDDDDDDDDDDDDDDDDDD");
+            
             SpawnEnemies(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
             NumberOfWaves--;
             CheckEnemies();
@@ -95,13 +91,7 @@ public class AddRoom : MonoBehaviour
 
     void SpawnEnemies(int diff_weight)
     {
-        Debug.Log("ASSSSSSSSSSSSSSSSSSSSSSSSSSS");
-        Debug.Log(NumberOfWaves);
-        Debug.Log(NumberOfWavesWithDifficult.Length - NumberOfWaves);
-        Debug.Log(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
-        Debug.Log("aDDDDDDDDDDDDDDDDDDDDDDDD");
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAA");
-        Debug.Log(diff_weight);
+        
         int diff = diff_weight;
         while (diff > 0)
         {

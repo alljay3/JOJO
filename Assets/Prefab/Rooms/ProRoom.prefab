@@ -11224,7 +11224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d78113b3de9d684e8e463c0f7398c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWavesWithDifficult: 0a000000
+  NumberOfWavesWithDifficult: 640000009600000046000000
   Doors:
   - {fileID: 8732130255407578235}
   doorEffect: {fileID: 0}
