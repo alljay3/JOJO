@@ -12,6 +12,7 @@ public class AddRoom : MonoBehaviour
     [Header("Doors")]
     [SerializeField] public GameObject[] Doors;
     [SerializeField] public GameObject doorEffect;
+    [SerializeField] public GameObject[] PossibleNextRoom;
 
 
     [Header("Enemies")]
@@ -24,6 +25,10 @@ public class AddRoom : MonoBehaviour
     [Header("Trees")]
     [SerializeField] public GameObject[] treeTypes;
     [SerializeField] public Transform[] treeSpawners;
+    [SerializeField] public float Xoffset1;
+    [SerializeField] public float Xoffset2;
+    [SerializeField] public float Yoffset1;
+  
 
     [Header("Powerups")]
     [SerializeField] public GameObject[] buffs;
@@ -50,6 +55,7 @@ public class AddRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("ENTER");
         if (other.CompareTag("Player") && !spawned)
         {
             Debug.Log("ASSSSSSSSSSSSSSSSSSSSSSSSSSS");
@@ -75,7 +81,7 @@ public class AddRoom : MonoBehaviour
                 float Yoffset = Random.Range(0.0f, 0.5f);
                 GameObject tree = Instantiate(treeType, spawner.position + new Vector3(Xoffset, Yoffset, 0), Quaternion.identity) as GameObject;
 
-                if (spawner.position.y > 0 && spawner.position.x > -8.5f && spawner.position.x < 8)
+                if (spawner.position.y > Yoffset && spawner.position.x > Xoffset1 && spawner.position.x < Xoffset2)
                 {
                     tree.GetComponent<TreeScript>().isTopTree = true;
                 }
