@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8267893325546342944}
-  - component: {fileID: 8267893325546342951}
   - component: {fileID: 8267893325546342950}
+  - component: {fileID: 8267893325546342951}
   - component: {fileID: 8267893325546342949}
   - component: {fileID: 8267893325546342948}
   - component: {fileID: 8267893325546342945}
@@ -37,6 +37,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8267893325546342950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267893325546342971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1639860633a0ba045ba2d8c85c4498ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 10
+  SpeedMove: 3
+  SpeedAttack: 1
+  PrefabSpellHook: {fileID: 2957248240207806334, guid: f120aae16a9747146a3a76d171f45f36, type: 3}
+  Damage: 1
+  Armor: 1
+  TimeDamageRecive: 0.2
+  TimeInvulnerability: 0.3
+  SlowPercent: 40
+  Weight: 2
+  CurHp: 0
+  IsOnThehook: 0
+  levelToLoad: 0
+  TypeOfSeverity: 0
+  TypeOfAttack: 0
+  TypeOfMove: 2
+  MeinPlayer: {fileID: 0}
+  DifficultyWeight: 20
+  DamageCollider: {fileID: 8267893326122095147}
 --- !u!212 &8267893325546342951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,34 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8267893325546342950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8267893325546342971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1639860633a0ba045ba2d8c85c4498ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 10
-  SpeedMove: 3
-  SpeedAttack: 1
-  PrefabSpellHook: {fileID: 2957248240207806334, guid: f120aae16a9747146a3a76d171f45f36, type: 3}
-  Damage: 1
-  Armor: 1
-  TimeDamageRecive: 0.2
-  TimeInvulnerability: 0.3
-  SlowPercent: 40
-  Weight: 2
-  IsOnThehook: 0
-  TypeOfSeverity: 0
-  TypeOfAttack: 0
-  TypeOfMove: 2
-  MeinPlayer: {fileID: 0}
-  DamageCollider: {fileID: 8267893326122095147}
 --- !u!50 &8267893325546342949
 Rigidbody2D:
   serializedVersion: 4

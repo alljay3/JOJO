@@ -17,11 +17,11 @@ public class TreeScript : MonoBehaviour
         if (isTopTree)
         {
             
-            myRenderer.sortingOrder = 2;
+            myRenderer.sortingOrder = 4;
         }
         else
         {
-            myRenderer.sortingOrder = 1000 - (int)(10 * position.y);
+            myRenderer.sortingOrder = 10000 - (int)(10 * position.y);
         }
     }
 

@@ -6,45 +6,69 @@ public class AddRoom : MonoBehaviour
 {
 
 
-    [SerializeField] public int RoomDifficultyWeight;
-    [SerializeField] public int NumberOfWaves;
+    //[SerializeField] public int RoomDifficultyWeight;
+    [SerializeField] public int[] NumberOfWavesWithDifficult;
 
     [Header("Doors")]
-    public GameObject[] Doors;
-    public GameObject doorEffect;
+    [SerializeField] public GameObject[] Doors;
+    [SerializeField] public GameObject doorEffect;
+    [SerializeField] public GameObject[] PossibleNextRoom;
 
 
     [Header("Enemies")]
-    public GameObject[] enemyTypes;
-    public Transform[] enemySpawners;
+    [SerializeField] public GameObject[] enemyTypes;
+    [SerializeField] public Transform[] enemySpawners;
+    [SerializeField] public List<GameObject> statues;
+    [SerializeField] public int WaveOfActivate;
+ 
 
     [Header("Trees")]
-    public GameObject[] treeTypes;
-    public Transform[] treeSpawners;
+    [SerializeField] public GameObject[] treeTypes;
+    [SerializeField] public Transform[] treeSpawners;
+    [SerializeField] public float Xoffset1;
+    [SerializeField] public float Xoffset2;
+    [SerializeField] public float Yoffset1;
+  
 
     [Header("Powerups")]
-    public GameObject[] buffs;
+    [SerializeField] public GameObject[] buffs;
 
-    public List<GameObject> enemies;
+    [SerializeField] public List<GameObject> enemies;
 
     //private RoomVariants variants;
     private bool spawned;
-    
     private bool treespawned;
     private bool doorDestroyed;
+    private int NumberOfWaves;
 
 
 
 
-    
+
+
     void Start()
     {
-        spawned = false;
+
+        NumberOfWaves = NumberOfWavesWithDifficult.Length;
+        spawned = NumberOfWaves == 0;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("ENTER");
         if (other.CompareTag("Player") && !spawned)
+        {
+            Debug.Log("ASSSSSSSSSSSSSSSSSSSSSSSSSSS");
+            Debug.Log(NumberOfWaves);
+            Debug.Log(NumberOfWavesWithDifficult.Length - NumberOfWaves);
+            Debug.Log(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
+            Debug.Log("aDDDDDDDDDDDDDDDDDDDDDDDD");
+            SpawnEnemies(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
+            NumberOfWaves--;
+            CheckEnemies();
+        }
+
+        if (other.CompareTag("Player") && !treespawned)
         {
             treespawned = true;
             foreach (Transform spawner in treeSpawners)
@@ -55,35 +79,49 @@ public class AddRoom : MonoBehaviour
 
                 float Xoffset = Random.Range(0.0f, 1.0f);
                 float Yoffset = Random.Range(0.0f, 0.5f);
-                GameObject tree = Instantiate(treeType, spawner.position + new Vector3(Xoffset, Yoffset,0), Quaternion.identity) as GameObject;
-               
-                if (spawner.position.y>0 && spawner.position.x>-8.5f && spawner.position.x <8)
+                GameObject tree = Instantiate(treeType, spawner.position + new Vector3(Xoffset, Yoffset, 0), Quaternion.identity) as GameObject;
+
+                if (spawner.position.y > Yoffset && spawner.position.x > Xoffset1 && spawner.position.x < Xoffset2)
                 {
                     tree.GetComponent<TreeScript>().isTopTree = true;
                 }
-                
+
                 tree.transform.parent = transform;
-                
+
             }
 
-
-            SpawnEnemies(RoomDifficultyWeight);
-
-
-            CheckEnemies();
         }
     }
 
     void SpawnEnemies(int diff_weight)
     {
-        foreach (Transform spawner in enemySpawners)
+        Debug.Log("ASSSSSSSSSSSSSSSSSSSSSSSSSSS");
+        Debug.Log(NumberOfWaves);
+        Debug.Log(NumberOfWavesWithDifficult.Length - NumberOfWaves);
+        Debug.Log(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
+        Debug.Log("aDDDDDDDDDDDDDDDDDDDDDDDD");
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAA");
+        Debug.Log(diff_weight);
+        int diff = diff_weight;
+        while (diff > 0)
         {
             int rand = Random.Range(0, enemyTypes.Length);
+            int randPosition = Random.Range(0, enemySpawners.Length);
             GameObject enemyType = enemyTypes[rand];
-            GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
+            GameObject enemy = Instantiate(enemyType, enemySpawners[randPosition].position, Quaternion.identity) as GameObject;
             enemy.transform.parent = transform;
             enemies.Add(enemy);
+            diff -= enemy.GetComponent<Enemy>().DifficultyWeight;
+
         }
+        //foreach (Transform spawner in enemySpawners)
+        //{
+        //    int rand = Random.Range(0, enemyTypes.Length);
+        //    GameObject enemyType = enemyTypes[rand];
+        //    GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
+        //    enemy.transform.parent = transform;
+        //    enemies.Add(enemy);
+        //}
         spawned = true;
     }
 
@@ -94,12 +132,12 @@ public class AddRoom : MonoBehaviour
         {
             if (enemies.Count == 0)
             {
-                if (NumberOfWaves > 1)
+                if (NumberOfWaves > 0)
                 {
 
                     
 
-                    SpawnEnemies(RoomDifficultyWeight);
+                    SpawnEnemies(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
                     NumberOfWaves--;
 
                 }
@@ -115,7 +153,17 @@ public class AddRoom : MonoBehaviour
       
        
     }
-
+    public void CheckStatues()
+    {
+        if (NumberOfWaves == NumberOfWavesWithDifficult.Length - WaveOfActivate )
+        {
+            foreach (GameObject statue in statues)
+            {
+                statue.GetComponent<RangeStatuy>().Active();
+                enemies.Add(statue);
+            }
+        }
+    }
     public void DestroyDoors()
     {
 
@@ -131,9 +179,11 @@ public class AddRoom : MonoBehaviour
     void FixedUpdate()
     {
         enemies.RemoveAll(obj => obj == null);
+        statues.RemoveAll(obj => obj == null);
         if (spawned && !doorDestroyed)
         {
             CheckEnemies();
+            CheckStatues();
         }
         
     }
