@@ -96,22 +96,16 @@ public class AddRoom : MonoBehaviour
         while (diff > 0)
         {
             int rand = Random.Range(0, enemyTypes.Length);
+            float Xoffset = Random.Range(-0.5f, 0.5f);
+            float Yoffset = Random.Range(-0.5f, 0.5f);
             int randPosition = Random.Range(0, enemySpawners.Length);
             GameObject enemyType = enemyTypes[rand];
-            GameObject enemy = Instantiate(enemyType, enemySpawners[randPosition].position, Quaternion.identity) as GameObject;
+            GameObject enemy = Instantiate(enemyType, enemySpawners[randPosition].position+ new Vector3(Xoffset, Yoffset,0), Quaternion.identity) as GameObject;
             enemy.transform.parent = transform;
             enemies.Add(enemy);
             diff -= enemy.GetComponent<Enemy>().DifficultyWeight;
 
         }
-        //foreach (Transform spawner in enemySpawners)
-        //{
-        //    int rand = Random.Range(0, enemyTypes.Length);
-        //    GameObject enemyType = enemyTypes[rand];
-        //    GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
-        //    enemy.transform.parent = transform;
-        //    enemies.Add(enemy);
-        //}
         spawned = true;
     }
 
@@ -124,9 +118,6 @@ public class AddRoom : MonoBehaviour
             {
                 if (NumberOfWaves > 0)
                 {
-
-                    
-
                     SpawnEnemies(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
                     NumberOfWaves--;
 
@@ -137,12 +128,9 @@ public class AddRoom : MonoBehaviour
                     DestroyDoors();
                 }
             }
-        }
-       
-       
-      
-       
+        }     
     }
+
     public void CheckStatues()
     {
         if (NumberOfWaves == NumberOfWavesWithDifficult.Length - WaveOfActivate )

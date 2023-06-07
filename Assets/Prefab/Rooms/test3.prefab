@@ -11368,11 +11368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d78113b3de9d684e8e463c0f7398c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWavesWithDifficult: 0a0000002800000096000000
+  NumberOfWavesWithDifficult: 0a000000
   Doors:
   - {fileID: 1696580928290598494}
   doorEffect: {fileID: 0}
-  PossibleNextRoom: []
   enemyTypes:
   - {fileID: 9030112331345578034, guid: a6a10fcc1c1cc7646860b12cd77a77b9, type: 3}
   - {fileID: 8267893325546342971, guid: 7e144e8a4443cef409c58a31e166f172, type: 3}
@@ -12059,6 +12058,7 @@ MonoBehaviour:
   PossibleNextRoom:
   - {fileID: 1696580929769781620, guid: 4325451d8c16f7449b844ef063f8f2e6, type: 3}
   - {fileID: 1696580929769781620, guid: a3f744454a08aeb468a489517996d655, type: 3}
+  DepthAdjuster: {fileID: 0}
 --- !u!1 &7270869608736832196
 GameObject:
   m_ObjectHideFlags: 0

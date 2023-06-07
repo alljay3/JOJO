@@ -11,6 +11,7 @@ public class Olen : Enemy
     [SerializeField] private float TimeColldownSkill;
     [SerializeField] private float MaxDistant;
     [SerializeField] private float SpeedRush;
+    [SerializeField] private GameObject Walls;
     private bool _isSkillColdow = false;
     private bool _isSkillProcces = false;
     private bool _isSkillPreparation = false;
@@ -60,6 +61,7 @@ public class Olen : Enemy
         _isSkillPreparation = true;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.GetComponent<Animator>().Play("preparation");
+        Walls.SetActive(true);
     }
 
 
@@ -80,6 +82,7 @@ public class Olen : Enemy
         _isSkillProcces = false;
         gameObject.GetComponent<Animator>().Play("Run");
         gameObject.layer = 3;
+        Walls.SetActive(false);
         Debug.Log(_isSkillColdow);
         Debug.Log(_isSkillPreparation);
         Debug.Log(_isSkillProcces);
