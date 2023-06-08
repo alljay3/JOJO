@@ -9,6 +9,7 @@ TagManager:
   - Foot
   - Door
   - WallsNoBullet
+  - Bonus
   layers:
   - Default
   - TransparentFX

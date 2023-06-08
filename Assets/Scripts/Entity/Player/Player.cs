@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Entity
 {
     [SerializeField] private GameObject Arm;
-    [SerializeField] float TimeCooldownHook = 2;
+    [SerializeField] public float TimeCooldownHook = 2;
     [SerializeField] GameObject DamageBlockPrefab;
     [SerializeField] float CooldownAttak = 1;
     private bool _isCoooldownAttak = false;
