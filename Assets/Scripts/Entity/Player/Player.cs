@@ -13,6 +13,7 @@ public class Player : Entity
     public bool _isHookCooldown = false;
     private Vector2 _moveVector = new Vector2();
     public int _stateAnim;
+    [SerializeField] AudioClip [] Sounds;
     void Start()
     {
         CurHp = Hp;
@@ -33,11 +34,15 @@ public class Player : Entity
             {
                 if (!isHookPush)
                 {
+                    GetComponent<AudioSource>().clip = Sounds[0];
+                    GetComponent<AudioSource>().Play();
                     isHookPush = true;
                     pushHook();
                 }
                 else
                 {
+                    GetComponent<AudioSource>().clip = Sounds[1];
+                    GetComponent<AudioSource>().Play();
                     isHookPush = false;
                     _isHookCooldown = true;
                     StartCoroutine("HookCooldownReduce");
@@ -50,12 +55,32 @@ public class Player : Entity
                 _moveVector.y = Input.GetAxisRaw("Vertical");
                 gameObject.GetComponent<Rigidbody2D>().velocity = _moveVector * (SpeedMove);
                 _stateAnim = 0;
+                bool s = false;
                 if (_moveVector.y < 0)
+                {
                     _stateAnim = 2;
+                    s = true;
+                }
                 if (_moveVector.y > 0)
+                {
                     _stateAnim = 1;
+                    s = true;
+
+                }
                 if (_moveVector.x != 0)
+                {
                     _stateAnim = 3;
+                    s = true;
+
+                }
+                if (s == true)
+                {
+                    if (GetComponent<AudioSource>().isPlaying == false)
+                    {
+                        GetComponent<AudioSource>().clip = Sounds[3];
+                        GetComponent<AudioSource>().Play();
+                    }
+                }
 
                 if (!_damageBlock)
                     if (_moveVector.x < 0)
@@ -107,6 +132,8 @@ public class Player : Entity
     {
         if (!_damageBlock && !_isCoooldownAttak)
         {
+            GetComponent<AudioSource>().clip = Sounds[2];
+            GetComponent<AudioSource>().Play();
             Vector2 _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 _naprVector = _mousePos - (Vector2)transform.position;
             Vector2 coord = _mousePos - (Vector2)transform.position;
@@ -150,6 +177,12 @@ public class Player : Entity
         }
     }
 
+    public override void soundDmg()
+    {
+        base.soundDmg();
+        GetComponent<AudioSource>().clip = Sounds[4];
+        GetComponent<AudioSource>().Play();
+    }
 
     public void AnimControl()
     {

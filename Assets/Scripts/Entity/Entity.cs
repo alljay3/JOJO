@@ -108,6 +108,10 @@ public class Entity : MonoBehaviour
             Vector2 coord = (Vector2)transform.position - posintionDamage;
             transform.GetComponent<Rigidbody2D>().velocity = coord.normalized * Weight * 3;
             stopHook();
+            if (gameObject.tag == "Player")
+            {
+                soundDmg();
+            }
         }
         if (CurHp <= 0)
         {
@@ -118,6 +122,9 @@ public class Entity : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+    virtual public void soundDmg()
+    {
     }
 
 

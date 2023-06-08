@@ -12577,6 +12577,7 @@ MonoBehaviour:
   CooldownAttak: 0.5
   _isHookCooldown: 0
   _stateAnim: 0
+  Sounds: []
 --- !u!212 &1062267002
 SpriteRenderer:
   m_ObjectHideFlags: 0
