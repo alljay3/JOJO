@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150e5de7f34dd1b4c9a1e15870607bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 20
+  Hp: 40
   SpeedMove: 1
   SpeedAttack: 1
   PrefabSpellHook: {fileID: 0}
