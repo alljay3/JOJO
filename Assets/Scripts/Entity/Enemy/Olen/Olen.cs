@@ -15,6 +15,7 @@ public class Olen : Enemy
     private bool _isSkillColdow = false;
     private bool _isSkillProcces = false;
     private bool _isSkillPreparation = false;
+    [SerializeField] AudioClip[] Sounds;
 
 
     public void Start()
@@ -61,6 +62,8 @@ public class Olen : Enemy
         _isSkillPreparation = true;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.GetComponent<Animator>().Play("preparation");
+        GetComponent<AudioSource>().clip = Sounds[0];
+        GetComponent<AudioSource>().Play();
         Walls.SetActive(true);
     }
 

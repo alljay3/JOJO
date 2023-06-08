@@ -126,8 +126,9 @@ MonoBehaviour:
   Sounds:
   - {fileID: 8300000, guid: 60b29f84baf332f4d82dc5bffe215c1e, type: 3}
   - {fileID: 8300000, guid: 992a09057879f4849ad5a47d66d97c79, type: 3}
-  - {fileID: 8300000, guid: 9f89138df5ba0384e81bb88b6171070a, type: 3}
-  - {fileID: 8300000, guid: f9344d9c9f637844b8214ef00cf0956b, type: 3}
+  - {fileID: 8300000, guid: 0b01dd3755b35fd4c81311ba08dd7cf1, type: 3}
+  - {fileID: 8300000, guid: bc921ebc6ac68e44580bdbb8ea16fcc1, type: 3}
+  - {fileID: 8300000, guid: 1d90708ddf4bdb446bb71f9895024fc6, type: 3}
 --- !u!61 &6733789878139887242
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.808
+  m_Volume: 0.511
   m_Pitch: 1
   Loop: 0
   Mute: 0
