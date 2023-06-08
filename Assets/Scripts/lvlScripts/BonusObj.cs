@@ -20,6 +20,7 @@ public class BonusObj : MonoBehaviour
         {
             var player = collision.gameObject.GetComponent<Player>();
             player.Hp += MaxHp;
+            player.CurHp += CurHp;
             var hp = player.CurHp + CurHp;
             if (hp >= player.Hp)
                 player.CurHp = player.Hp;
