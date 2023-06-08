@@ -11,7 +11,7 @@ public class LightRangeMob : Enemy
     [SerializeField] private int BulletSpeed = 1;
     [SerializeField] private float PlayerDist = 2f;
     [SerializeField] private GameObject BulletPrefab;
-
+    [SerializeField] AudioClip[] Sounds;
     public void Start()
     {
         MeinPlayer = GameObject.Find("player");
@@ -55,6 +55,8 @@ public class LightRangeMob : Enemy
 
         if (!IsDamageReceived)
         {
+            GetComponent<AudioSource>().clip = Sounds[0];
+            GetComponent<AudioSource>().Play();
             GameObject bullet = GameObject.Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
             bullet.GetComponent<Bullet>().Damage = RangeDamage;
             bullet.GetComponent<Bullet>().Speed = BulletSpeed;
