@@ -120,6 +120,11 @@ public class Entity : MonoBehaviour
             {
                 SceneManager.LoadScene(levelToLoad);
             }
+            else if (gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Bosses)
+            {
+                GameObject qwe = GameObject.Find("Interfeiz");
+                qwe.transform.Find("Pobeda").gameObject.SetActive(true);
+            }
             Destroy(gameObject);
         }
     }
