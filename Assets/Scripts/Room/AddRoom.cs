@@ -32,6 +32,7 @@ public class AddRoom : MonoBehaviour
 
     [Header("Powerups")]
     [SerializeField] public GameObject[] buffs;
+    [SerializeField] public Transform[] buffsSpawners;
 
     [SerializeField] public List<GameObject> enemies;
 
@@ -40,6 +41,7 @@ public class AddRoom : MonoBehaviour
     private bool treespawned;
     private bool doorDestroyed;
     private int NumberOfWaves;
+    private GameObject DepthAdjuster;
 
 
 
@@ -51,6 +53,7 @@ public class AddRoom : MonoBehaviour
 
         NumberOfWaves = NumberOfWavesWithDifficult.Length;
         spawned = NumberOfWaves == 0;
+        DepthAdjuster = GameObject.Find("DepthAdjuster");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -92,7 +95,7 @@ public class AddRoom : MonoBehaviour
     void SpawnEnemies(int diff_weight)
     {
         
-        int diff = diff_weight;
+        int diff = diff_weight + 5*DepthAdjuster.GetComponent<DepthAdjusterScript>().curDepth;
         while (diff > 0)
         {
             int rand = Random.Range(0, enemyTypes.Length);
@@ -126,11 +129,21 @@ public class AddRoom : MonoBehaviour
                 {
                     
                     DestroyDoors();
+                    SpawnBuffs();
                 }
             }
         }     
     }
+    public void SpawnBuffs()
+    {
 
+        foreach (Transform buff1 in buffsSpawners)
+        {
+            int rand = Random.Range(0, buffs.Length);
+            GameObject bufff = Instantiate(buffs[rand], buff1.position , Quaternion.identity) as GameObject;
+            bufff.transform.parent = transform;
+        }
+    }
     public void CheckStatues()
     {
         if (NumberOfWaves == NumberOfWavesWithDifficult.Length - WaveOfActivate )
