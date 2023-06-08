@@ -126,7 +126,7 @@ MonoBehaviour:
   SpeedMove: 1
   SpeedAttack: 1
   PrefabSpellHook: {fileID: 0}
-  Damage: 1
+  Damage: 5
   Armor: 1
   TimeDamageRecive: 0.2
   TimeInvulnerability: 0.2

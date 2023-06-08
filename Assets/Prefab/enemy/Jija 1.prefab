@@ -125,7 +125,7 @@ MonoBehaviour:
   SpeedMove: 0.7
   SpeedAttack: 1
   PrefabSpellHook: {fileID: 2957248240207806334, guid: f120aae16a9747146a3a76d171f45f36, type: 3}
-  Damage: 5
+  Damage: 10
   Armor: 1
   TimeDamageRecive: 0.2
   TimeInvulnerability: 0.3
@@ -138,7 +138,7 @@ MonoBehaviour:
   TypeOfAttack: 0
   TypeOfMove: 1
   MeinPlayer: {fileID: 0}
-  DifficultyWeight: 15
+  DifficultyWeight: 10
   DamageCollider: {fileID: 9030112331283753565}
 --- !u!212 &9030112331345578046
 SpriteRenderer:

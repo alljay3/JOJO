@@ -53,7 +53,7 @@ MonoBehaviour:
   SpeedMove: 3
   SpeedAttack: 1
   PrefabSpellHook: {fileID: 2957248240207806334, guid: f120aae16a9747146a3a76d171f45f36, type: 3}
-  Damage: 1
+  Damage: 5
   Armor: 1
   TimeDamageRecive: 0.2
   TimeInvulnerability: 0.3
