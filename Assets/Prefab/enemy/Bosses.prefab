@@ -176,6 +176,7 @@ MonoBehaviour:
   SpeedTornadoArrow: 0.03
   Sounds:
   - {fileID: 8300000, guid: acfe2c191ff183c4e96276e8bc3430c1, type: 3}
+  - {fileID: 8300000, guid: d0fdc96488caade4990f086a9caea671, type: 3}
 --- !u!95 &36302119006083524
 Animator:
   serializedVersion: 4

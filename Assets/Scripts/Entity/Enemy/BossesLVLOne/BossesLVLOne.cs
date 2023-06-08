@@ -54,8 +54,7 @@ public class BossesLVLOne : Enemy
         bullet.GetComponent<Bullet>().Speed = BulletSpeed;
         bullet.GetComponent<Bullet>().position = coord;
         bullet.transform.LookAt2D(bullet.transform.right, coord);
-        GetComponent<AudioSource>().clip = Sounds[0];
-        GetComponent<AudioSource>().Play();
+
     }
 
     public void FixedUpdate()
@@ -85,6 +84,8 @@ public class BossesLVLOne : Enemy
         GetComponent<Animator>().Play("Tornado");
         yield return new WaitForSeconds(TimeTornado);
         StopCoroutine(tornado);
+        GetComponent<AudioSource>().loop = false;
+        GetComponent<AudioSource>().Stop();
         isTornado = false;
         countArrow = 0;
         GetComponent<Animator>().Play("Attack");
@@ -93,6 +94,9 @@ public class BossesLVLOne : Enemy
 
     IEnumerator TornadoBullet()
     {
+        GetComponent<AudioSource>().clip = Sounds[1];
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().Play();
         int x = 0;
         while (true)
         {
