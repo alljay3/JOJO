@@ -11368,7 +11368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d78113b3de9d684e8e463c0f7398c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWavesWithDifficult: 0a000000
+  NumberOfWavesWithDifficult: 0a0000000a000000
   Doors:
   - {fileID: 1696580928290598494}
   doorEffect: {fileID: 0}
@@ -11388,7 +11388,7 @@ MonoBehaviour:
   - {fileID: 5052639616059115250}
   statues:
   - {fileID: 7055488843412904740}
-  WaveOfActivate: 2
+  WaveOfActivate: 1
   treeTypes:
   - {fileID: 1972728646124709484, guid: 0664190d5c7843549a3fe5f27871e73f, type: 3}
   - {fileID: 7683577364306544054, guid: 4046e9f5c7025df4491c633787adca71, type: 3}

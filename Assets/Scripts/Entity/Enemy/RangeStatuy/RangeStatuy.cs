@@ -10,6 +10,7 @@ public class RangeStatuy : Enemy
     [SerializeField] private GameObject BulletPrefab;
     [SerializeField] private GameObject boxdetec;
     [SerializeField] private GameObject unActiveBox;
+    [SerializeField] AudioClip[] Sounds;
     private bool isStart = false;
 
     public void Start()
@@ -61,6 +62,8 @@ public class RangeStatuy : Enemy
             bullet.GetComponent<Bullet>().Speed = BulletSpeed;
             bullet.GetComponent<Bullet>().position = MeinPlayer.transform.position;
             bullet.transform.LookAt2D(bullet.transform.up, MeinPlayer.transform.position);
+            GetComponent<AudioSource>().clip = Sounds[0];
+            GetComponent<AudioSource>().Play();
         }
     }
 
