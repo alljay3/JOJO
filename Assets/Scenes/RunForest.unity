@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1f9fd7162454c40a961179129b9977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Depth: 0
+  Depth: 7
   curDepth: 0
   BossRoom: {fileID: 1696580929769781620, guid: 4830ad21f73090d41851b6a22ec561d5, type: 3}
 --- !u!4 &933697687
