@@ -11,6 +11,7 @@ public class BossesLVLOne : Enemy
     [SerializeField] private int KolArrow = 5;
     [SerializeField] private float TimeTornado = 5;
     [SerializeField] private float SpeedTornadoArrow = 0.1f;
+    [SerializeField] AudioClip[] Sounds;
 
     private int countArrow = 0;
     private bool isTornado = false;
@@ -35,6 +36,8 @@ public class BossesLVLOne : Enemy
         bullet.GetComponent<Bullet>().Speed = BulletSpeed;
         bullet.GetComponent<Bullet>().position = MeinPlayer.transform.position;
         bullet.transform.LookAt2D(bullet.transform.right, MeinPlayer.transform.position);
+        GetComponent<AudioSource>().clip = Sounds[0];
+        GetComponent<AudioSource>().Play();
         countArrow += 1;
     }
 
@@ -51,6 +54,8 @@ public class BossesLVLOne : Enemy
         bullet.GetComponent<Bullet>().Speed = BulletSpeed;
         bullet.GetComponent<Bullet>().position = coord;
         bullet.transform.LookAt2D(bullet.transform.right, coord);
+        GetComponent<AudioSource>().clip = Sounds[0];
+        GetComponent<AudioSource>().Play();
     }
 
     public void FixedUpdate()
