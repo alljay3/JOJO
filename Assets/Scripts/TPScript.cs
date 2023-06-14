@@ -10,7 +10,8 @@ public class TPScript : MonoBehaviour
     [SerializeField] public float YJump;
     [SerializeField] public GameObject[] PossibleNextRoom;
     [SerializeField] public GameObject DepthAdjuster;
-    // Start is called before the first frame update
+    [SerializeField] public GameObject DefaultHook;
+    // Start is called before the first frame update     DefaultHook(Clone)
     void Start()
     {
         MeinPlayer = GameObject.Find("player");
@@ -21,6 +22,7 @@ public class TPScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
 
             if (DepthAdjuster!= null && DepthAdjuster.GetComponent<DepthAdjusterScript>().curDepth < DepthAdjuster.GetComponent<DepthAdjusterScript>().Depth)
             {
@@ -38,9 +40,14 @@ public class TPScript : MonoBehaviour
                 MeinPlayer.transform.position = MeinPlayer.transform.position + new Vector3(XJump, YJump, 0);
                 MeinCam.transform.position = MeinCam.transform.position + new Vector3(0, 20, 0);
             }
-            
-            
-              
+            DefaultHook = GameObject.Find("DefaultHook(Clone)");
+            if (DefaultHook!=null)
+            {
+                DefaultHook.GetComponent<DefaultHook>().HookDetele();
+            }
+
+
+
         }
     }
 
