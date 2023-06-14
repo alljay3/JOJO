@@ -11969,9 +11969,9 @@ MonoBehaviour:
   - {fileID: 1696580929769781620, guid: 305925d62864cae40b05786a3af2fdab, type: 3}
   - {fileID: 1696580929769781620, guid: fadc81b616b46a74ebddf730aa3eca73, type: 3}
   - {fileID: 1696580929769781620, guid: 20451fc6c94a5064ebe31d33ed491db7, type: 3}
-  - {fileID: 1696580929769781620}
   - {fileID: 1696580929769781620, guid: a9ffd935230f55f4da53c3b8a389b440, type: 3}
   DepthAdjuster: {fileID: 0}
+  DefaultHook: {fileID: 0}
 --- !u!1 &6042327909683420354
 GameObject:
   m_ObjectHideFlags: 0

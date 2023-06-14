@@ -12177,7 +12177,6 @@ MonoBehaviour:
   YJump: 11
   PossibleNextRoom:
   - {fileID: 1696580929769781620, guid: 7fcb0e4c4ad6aec4c8b32836fadc31fa, type: 3}
-  - {fileID: 1696580929769781620, guid: f08c3661a89c4fb44a0864fde16c88c3, type: 3}
   - {fileID: 1696580929769781620, guid: de11f4da50816654cac6de283f62b408, type: 3}
   - {fileID: 1696580929769781620, guid: 305925d62864cae40b05786a3af2fdab, type: 3}
   - {fileID: 1696580929769781620, guid: fadc81b616b46a74ebddf730aa3eca73, type: 3}
@@ -12191,6 +12190,7 @@ MonoBehaviour:
   - {fileID: 1696580929769781620, guid: a9ffd935230f55f4da53c3b8a389b440, type: 3}
   - {fileID: 1696580929769781620, guid: a9ffd935230f55f4da53c3b8a389b440, type: 3}
   DepthAdjuster: {fileID: 0}
+  DefaultHook: {fileID: 0}
 --- !u!1 &5783335476456474700
 GameObject:
   m_ObjectHideFlags: 0
