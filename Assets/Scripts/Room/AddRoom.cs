@@ -42,7 +42,7 @@ public class AddRoom : MonoBehaviour
     private bool doorDestroyed;
     private int NumberOfWaves;
     private GameObject DepthAdjuster;
-
+    private int difficultyFactor = 10;
 
 
 
@@ -50,7 +50,7 @@ public class AddRoom : MonoBehaviour
 
     void Start()
     {
-
+       
         NumberOfWaves = NumberOfWavesWithDifficult.Length;
         spawned = NumberOfWaves == 0;
         DepthAdjuster = GameObject.Find("DepthAdjuster");
@@ -95,7 +95,7 @@ public class AddRoom : MonoBehaviour
     void SpawnEnemies(int diff_weight)
     {
         
-        int diff = diff_weight + 5*DepthAdjuster.GetComponent<DepthAdjusterScript>().curDepth;
+        int diff = diff_weight + difficultyFactor* DepthAdjuster.GetComponent<DepthAdjusterScript>().curDepth;
         while (diff > 0)
         {
             int rand = Random.Range(0, enemyTypes.Length);

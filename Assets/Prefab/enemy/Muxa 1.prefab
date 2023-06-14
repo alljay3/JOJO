@@ -66,7 +66,7 @@ MonoBehaviour:
   TypeOfAttack: 0
   TypeOfMove: 2
   MeinPlayer: {fileID: 0}
-  DifficultyWeight: 20
+  DifficultyWeight: 15
   DamageCollider: {fileID: 8267893326122095147}
 --- !u!212 &8267893325546342951
 SpriteRenderer:
