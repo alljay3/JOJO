@@ -42,7 +42,7 @@ public class AddRoom : MonoBehaviour
     private bool doorDestroyed;
     private int NumberOfWaves;
     private GameObject DepthAdjuster;
-    private int difficultyFactor = 10;
+    [SerializeField] private int difficultyFactor = 10;
 
 
 

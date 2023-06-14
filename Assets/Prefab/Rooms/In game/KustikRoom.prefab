@@ -11227,7 +11227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d78113b3de9d684e8e463c0f7398c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWavesWithDifficult: 3200000064000000
+  NumberOfWavesWithDifficult: 1e0000003c000000
   Doors:
   - {fileID: 8732130255407578235}
   doorEffect: {fileID: 0}
@@ -11321,6 +11321,7 @@ MonoBehaviour:
   - {fileID: 9033756949458334613}
   - {fileID: 7569765588628708746}
   enemies: []
+  difficultyFactor: 7
 --- !u!61 &1696580929769781626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12003,6 +12004,7 @@ MonoBehaviour:
   - {fileID: 1696580929769781620, guid: 7fcb0e4c4ad6aec4c8b32836fadc31fa, type: 3}
   - {fileID: 1696580929769781620, guid: d5b098ddda23a7747838eff8307f39b4, type: 3}
   DepthAdjuster: {fileID: 0}
+  DefaultHook: {fileID: 0}
 --- !u!1 &6724495790867064676
 GameObject:
   m_ObjectHideFlags: 0

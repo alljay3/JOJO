@@ -11386,6 +11386,7 @@ MonoBehaviour:
   - {fileID: 9033756949458334613}
   - {fileID: 7569765588628708746}
   enemies: []
+  difficultyFactor: 7
 --- !u!61 &1696580929769781626
 BoxCollider2D:
   m_ObjectHideFlags: 0

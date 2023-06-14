@@ -11428,6 +11428,7 @@ MonoBehaviour:
   - {fileID: 9033756949458334613}
   - {fileID: 7569765588628708746}
   enemies: []
+  difficultyFactor: 7
 --- !u!61 &1696580929769781626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12006,6 +12007,7 @@ MonoBehaviour:
   - {fileID: 1696580929769781620, guid: 4c7e8536c89c3c246a5e7be80bbe2e03, type: 3}
   - {fileID: 1696580929769781620, guid: 81279a679250e4140a4b9d1fd5780d02, type: 3}
   DepthAdjuster: {fileID: 0}
+  DefaultHook: {fileID: 0}
 --- !u!1 &7223997748440041023
 GameObject:
   m_ObjectHideFlags: 0
