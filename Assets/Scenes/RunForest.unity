@@ -626,18 +626,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 416866127, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 416866128, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
-      propertyPath: m_Volume
-      value: 0.105
-      objectReference: {fileID: 0}
-    - target: {fileID: 6199526406162401413, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2886794972817645597, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
+      propertyPath: TextureCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 968525d83b47b684dac5c85f506ba0a0, type: 3}
     - target: {fileID: 7036525613780406892, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
       propertyPath: m_RootOrder
       value: 0
