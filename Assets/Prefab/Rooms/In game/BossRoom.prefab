@@ -12485,6 +12485,7 @@ MonoBehaviour:
   - {fileID: 1696580929769781620, guid: 4325451d8c16f7449b844ef063f8f2e6, type: 3}
   - {fileID: 1696580929769781620, guid: 0b8b2af896788f84ca669afecaebf8db, type: 3}
   DepthAdjuster: {fileID: 0}
+  DefaultHook: {fileID: 0}
 --- !u!1 &6676685602866080898
 GameObject:
   m_ObjectHideFlags: 0
@@ -13228,7 +13229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1860975836251867145, guid: 4f6087b47a3d1944ebd63a5cf1e45c5e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.98
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 1860975836251867145, guid: 4f6087b47a3d1944ebd63a5cf1e45c5e, type: 3}
       propertyPath: m_LocalPosition.y
