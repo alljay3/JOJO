@@ -1279,7 +1279,7 @@ MonoBehaviour:
   MeinPlayer: {fileID: 0}
   MeinCam: {fileID: 0}
   XJump: 0
-  YJump: 21
+  YJump: 20
   PossibleNextRoom:
   - {fileID: 1696580929769781620, guid: 7fcb0e4c4ad6aec4c8b32836fadc31fa, type: 3}
   - {fileID: 1696580929769781620, guid: f08c3661a89c4fb44a0864fde16c88c3, type: 3}
@@ -1296,6 +1296,7 @@ MonoBehaviour:
   - {fileID: 1696580929769781620, guid: a9ffd935230f55f4da53c3b8a389b440, type: 3}
   - {fileID: 1696580929769781620, guid: a9ffd935230f55f4da53c3b8a389b440, type: 3}
   DepthAdjuster: {fileID: 0}
+  DefaultHook: {fileID: 0}
 --- !u!1 &6452312054618775755
 GameObject:
   m_ObjectHideFlags: 0
