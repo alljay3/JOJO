@@ -142,6 +142,7 @@ public class Player : Entity
             coord.x = transform.position.x + coord.x * 0.5f;
             coord.y = transform.position.y - 0.2f + coord.y * 0.8f;
             _damageBlock = Instantiate(DamageBlockPrefab, coord, Quaternion.identity) as GameObject;
+            _damageBlock.GetComponent<PlayerDamageCollider>().player = gameObject;
 
             if (_naprVector.y < 0)
             {
