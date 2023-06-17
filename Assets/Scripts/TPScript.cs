@@ -17,6 +17,7 @@ public class TPScript : MonoBehaviour
         MeinPlayer = GameObject.Find("player");
         MeinCam = GameObject.Find("Main Camera");
         DepthAdjuster = GameObject.Find("DepthAdjuster");
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -45,6 +46,7 @@ public class TPScript : MonoBehaviour
             {
                 DefaultHook.GetComponent<DefaultHook>().HookDetele();
             }
+            PlayerPrefs.SetInt("FirstStart", 1);
 
 
 

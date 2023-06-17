@@ -13,6 +13,7 @@ public class exitScript : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            PlayerPrefs.SetInt("FirstStart", 0);
             Application.Quit();
             Debug.Log("aaAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
