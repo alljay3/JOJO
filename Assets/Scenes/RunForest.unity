@@ -636,7 +636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyUi:
   - {fileID: 665164982}
-  - {fileID: 0}
 --- !u!20 &1914516496 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7036525613780406893, guid: 940deb099b2cb8d46b3c5e5a1b73f3ae, type: 3}
