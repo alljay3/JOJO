@@ -6,7 +6,7 @@ public class AddRoom : MonoBehaviour
 {
 
 
-    //[SerializeField] public int RoomDifficultyWeight;
+    
     [SerializeField] public int[] NumberOfWavesWithDifficult;
 
     [Header("Doors")]
@@ -115,33 +115,32 @@ public class AddRoom : MonoBehaviour
     public void CheckEnemies()
     {
       
-        if (spawned)
+        if (spawned && enemies.Count == 0)
         {
-            if (enemies.Count == 0)
+        
+            if (NumberOfWaves > 0)
             {
-                if (NumberOfWaves > 0)
-                {
-                    SpawnEnemies(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
-                    NumberOfWaves--;
+                SpawnEnemies(NumberOfWavesWithDifficult[NumberOfWavesWithDifficult.Length - NumberOfWaves]);
+                NumberOfWaves--;
 
-                }
-                else
-                {
-                    
-                    DestroyDoors();
-                    SpawnBuffs();
-                }
             }
+            else
+            {
+                    
+                DestroyDoors();
+                SpawnBuffs();
+            }
+            
         }     
     }
     public void SpawnBuffs()
     {
 
-        foreach (Transform buff1 in buffsSpawners)
+        foreach (Transform buffPosition in buffsSpawners)
         {
             int rand = Random.Range(0, buffs.Length);
-            GameObject bufff = Instantiate(buffs[rand], buff1.position , Quaternion.identity) as GameObject;
-            bufff.transform.parent = transform;
+            GameObject buff = Instantiate(buffs[rand], buffPosition.position , Quaternion.identity) as GameObject;
+            buff.transform.parent = transform;
         }
     }
     public void CheckStatues()
@@ -160,7 +159,7 @@ public class AddRoom : MonoBehaviour
 
         foreach(GameObject door in Doors)
         {
-            if (door != null)   /*&& door.transform.childCount != 0*/
+            if (door != null)  
             {
                 Destroy(door);
             }
