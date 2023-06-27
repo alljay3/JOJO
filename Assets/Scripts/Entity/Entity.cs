@@ -27,7 +27,7 @@ public class Entity : MonoBehaviour
     public int CurHp;
     public bool IsOnThehook = false;
 
-    public int levelToLoad;
+    public string levelToLoad;
 
     void Update()
     {
@@ -104,7 +104,6 @@ public class Entity : MonoBehaviour
             IsInvulnerability = true;
             StartCoroutine("DamageReceived");
             StartCoroutine("Invulnerability");
-            Debug.Log(CurHp);
             Vector2 coord = (Vector2)transform.position - posintionDamage;
             transform.GetComponent<Rigidbody2D>().velocity = coord.normalized * Weight * 3;
             stopHook();
@@ -118,6 +117,8 @@ public class Entity : MonoBehaviour
           
             if (gameObject.tag == "Player")
             {
+                PlayerPrefs.SetInt("GoReclama", 1);
+                PlayerPrefs.SetInt("Dead", 1);
                 SceneManager.LoadScene(levelToLoad);
             }
             else if (gameObject.GetComponent<Enemy>().TypeOfSeverity == Enemy.SeverityMob.Bosses)

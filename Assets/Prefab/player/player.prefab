@@ -116,7 +116,7 @@ MonoBehaviour:
   Weight: 1.5
   CurHp: 0
   IsOnThehook: 0
-  levelToLoad: 1
+  levelToLoad: Loading
   Arm: {fileID: 6733789879678898799}
   TimeCooldownHook: 1.5
   DamageBlockPrefab: {fileID: 5244990724030142375, guid: 87d0b51698ba6dc4186456710517102a, type: 3}

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Forest.unity
     guid: e3b43105a3e02e349b39f349b1309ce5
   - enabled: 1
+    path: Assets/Scenes/FirstScreen.unity
+    guid: 79dd30e6d98e27e41979b5585dd0ad66
+  - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: fbde73f9c26f90d419a66f83967c2f9d
   - enabled: 1

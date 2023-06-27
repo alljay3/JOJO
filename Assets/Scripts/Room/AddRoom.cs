@@ -58,7 +58,6 @@ public class AddRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ENTER");
         if (other.CompareTag("Player") && !spawned)
         {
             

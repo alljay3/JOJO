@@ -15,7 +15,7 @@ public class PobedaTextScript : MonoBehaviour
     }
     public void Pobeda()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Loading");
     }
     // Update is called once per frame
     void Update()

@@ -86,9 +86,6 @@ public class Olen : Enemy
         gameObject.GetComponent<Animator>().Play("Run");
         gameObject.layer = 3;
         Walls.SetActive(false);
-        Debug.Log(_isSkillColdow);
-        Debug.Log(_isSkillPreparation);
-        Debug.Log(_isSkillProcces);
     }
 
 
