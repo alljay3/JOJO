@@ -27,7 +27,7 @@ public class AddRoom : MonoBehaviour
     [SerializeField] public Transform[] treeSpawners;
     [SerializeField] public float Xoffset1;
     [SerializeField] public float Xoffset2;
-    [SerializeField] public float Yoffset1;
+
   
 
     [Header("Powerups")]
@@ -36,7 +36,7 @@ public class AddRoom : MonoBehaviour
 
     [SerializeField] public List<GameObject> enemies;
 
-    //private RoomVariants variants;
+ 
     private bool spawned;
     private bool treespawned;
     private bool doorDestroyed;
@@ -79,7 +79,8 @@ public class AddRoom : MonoBehaviour
                 float Yoffset = Random.Range(0.0f, 0.5f);
                 GameObject tree = Instantiate(treeType, spawner.position + new Vector3(Xoffset, Yoffset, 0), Quaternion.identity) as GameObject;
 
-                if (spawner.position.y > Yoffset && spawner.position.x > Xoffset1 && spawner.position.x < Xoffset2)
+
+                if (spawner.position.y > transform.position.y && spawner.position.x > Xoffset1 && spawner.position.x < Xoffset2)
                 {
                     tree.GetComponent<TreeScript>().isTopTree = true;
                 }

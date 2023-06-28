@@ -11420,8 +11420,7 @@ MonoBehaviour:
   - {fileID: 1696580928124330496}
   - {fileID: 1696580928612130280}
   Xoffset1: -8.5
-  Xoffset2: 8
-  Yoffset1: 0
+  Xoffset2: 6.5
   buffs:
   - {fileID: 4420547855942408631, guid: 598087cadf49a164a893fec25fb1e4bb, type: 3}
   buffsSpawners:

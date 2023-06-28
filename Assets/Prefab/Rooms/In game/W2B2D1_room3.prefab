@@ -11387,8 +11387,7 @@ MonoBehaviour:
   - {fileID: 1696580928124330496}
   - {fileID: 1696580928612130280}
   Xoffset1: -8.5
-  Xoffset2: 8
-  Yoffset1: 0
+  Xoffset2: 6.5
   buffs:
   - {fileID: 7024232228640673548, guid: 67e351365909e7f47ba84ac12a9b1c88, type: 3}
   - {fileID: 522128585072209639, guid: e99e7526044b55647bc2b5be6efa0d08, type: 3}
